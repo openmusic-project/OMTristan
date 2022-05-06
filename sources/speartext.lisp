@@ -312,7 +312,7 @@
    :doc ""
 
 
-  (let ((nom (or fichier (choose-new-file-dialog)))
+  (let ((nom (or fichier (om-choose-new-file-dialog)))
         (prev-frame nil)
         (prev-time nil))
     

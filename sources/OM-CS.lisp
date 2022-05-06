@@ -104,7 +104,7 @@ mulamp = multiplicateur d'intensité"
    :icon 132
    :doc ""
 
-   (let* ((nom (if (equal fichier 'nil) (choose-new-file-dialog ) fichier))
+   (let* ((nom (if (equal fichier 'nil) (om-choose-new-file-dialog ) fichier))
           (long (1- (length dates)))
           (last-ev (- (nth long dates) (nth (1- long) dates)))
           (dates (x-append dates (+ (last-elem dates ) last-ev)  (+ (last-elem dates ) 
@@ -157,7 +157,7 @@ mulamp = multiplicateur d'intensité"
    :icon 132
    :doc ""
 
-   (let* ((nom (if (equal fichier 'nil) (choose-new-file-dialog ) fichier))
+   (let* ((nom (if (equal fichier 'nil) (om-choose-new-file-dialog ) fichier))
           (long (1- (length dates)))
           (last-ev (- (nth long dates) (nth (1- long) dates)))
           newDate
@@ -210,7 +210,7 @@ mulamp = multiplicateur d'intensité"
    :icon 132
    :doc ""
 
-   (let* ((nom (if (equal fichier 'nil) (choose-new-file-dialog ) fichier))
+   (let* ((nom (if (equal fichier 'nil) (om-choose-new-file-dialog ) fichier))
           (long (1- (length dates)))
           (last-ev (- (nth long dates) (nth (1- long) dates)))
           (dates (x-append dates (+ (last-elem dates ) last-ev)  (+ (last-elem dates ) 
@@ -277,7 +277,7 @@ format spectre : ( (rangs harm) (intensitÈs))"
    
    
    
-   (let* ((nom (if (equal fichier 'nil) (choose-new-file-dialog ) fichier))
+   (let* ((nom (if (equal fichier 'nil) (om-choose-new-file-dialog ) fichier))
           (long (1- (length dates)))
           (last-ev (- (nth long dates) (nth (1- long) dates)))
           (dates (x-append dates (+ (last-elem dates ) last-ev)  (+ (last-elem dates ) 
@@ -392,7 +392,7 @@ table d'onde; par dÈfaut, onde sinus
 format spectre : ( (rangs harm) (intensitÈs))"
         
   
-   (let* ((nom (if (equal fichier 'nil) (choose-new-file-dialog ) fichier))
+   (let* ((nom (if (equal fichier 'nil) (om-choose-new-file-dialog ) fichier))
           (frqs (mc->f (lmidic accords)))
           (amps (lvel accords))
           (amps (om* (om/ amps (list-max (l-sum amps))) mulamp))  ; somme des amps = 1 * mulamp
@@ -468,7 +468,7 @@ table d'onde; par dÈfaut, onde sinus
 format spectre : ( (rangs harm) (intensitÈs))"
         
   
-  (let* ((nom (if (equal fichier 'nil) (choose-new-file-dialog ) fichier))
+  (let* ((nom (if (equal fichier 'nil) (om-choose-new-file-dialog ) fichier))
          (muldur (/ muldur 1000)); might be in milliseconds
          (frqs (mc->f (lmidic accords)))
          (amps (lvel accords))
@@ -544,7 +544,7 @@ table d'onde; par dÈfaut, onde sinus
 format spectre : ( (rangs harm) (intensitÈs))"
         
  
-  (let* ((nom (if (equal fichier 'nil) (choose-new-file-dialog ) fichier))
+  (let* ((nom (if (equal fichier 'nil) (om-choose-new-file-dialog ) fichier))
          (muldur (/ muldur 1000))
          (frqs (mc->f (lmidic accord)))
          (amps (lvel accord))
@@ -603,7 +603,7 @@ table d'onde à partir de listes (dates,durs, freqs, amps, spatia)
 format spectre : ( (rangs harm) (intensités))"
    
    
-   (let* ((nom (if (equal fichier 'nil) (choose-new-file-dialog ) fichier))
+   (let* ((nom (if (equal fichier 'nil) (om-choose-new-file-dialog ) fichier))
           (long (1- (length dates)))
           (last-ev (- (nth long dates) (nth (1- long) dates)))
           (dates (x-append dates (+ (last-elem dates ) last-ev)  ))
@@ -669,7 +669,7 @@ format spectre : ( (rangs harm) (intensités))
 l'attaque utilise ins1, le reste ins2"
 
 
-  (let* ((nom (if (equal fichier 'nil) (choose-new-file-dialog ) fichier))
+  (let* ((nom (if (equal fichier 'nil) (om-choose-new-file-dialog ) fichier))
         (long (1- (length dates)))
         (last-ev (- (nth long dates) (nth (1- long) dates)))
         (dates (x-append dates (+ (last-elem dates ) last-ev)  (+ (last-elem dates ) 
@@ -757,7 +757,7 @@ l'attaque utilise ins1, le reste ins2
 offset: le son peut démarrer après un délai"
 
 
-  (let* ((nom (if (equal fichier 'nil) (choose-new-file-dialog ) fichier))
+  (let* ((nom (if (equal fichier 'nil) (om-choose-new-file-dialog ) fichier))
         (long (1- (length dates)))
         (last-ev (- (nth long dates) (nth (1- long) dates)))
         (dates (x-append dates (+ (last-elem dates ) last-ev)  (+ (last-elem dates ) 
@@ -896,7 +896,7 @@ composition des listes ''sons'' : attaques durées amps freqs pentesdroites spati
    
    
    
-   (let* ((nom (if (equal fichier 'nil) (choose-new-file-dialog ) fichier))
+   (let* ((nom (if (equal fichier 'nil) (om-choose-new-file-dialog ) fichier))
           
           (sons (x-append (if (null son2) son1 (list son1 son2 )) sons))
           (fin (list-max (mapcar 'seventh sons)))
@@ -1030,7 +1030,7 @@ composition des listes ''sons'' : attaques durées amps freqs pentesdroites spati
    
 
 
-  (let* ((nom (if (equal fichier 'nil) (choose-new-file-dialog ) fichier))
+  (let* ((nom (if (equal fichier 'nil) (om-choose-new-file-dialog ) fichier))
          
          (sons (x-append (if (null son2) son1 (list son1 son2 )) sons))
          (fin (list-max (mapcar 'seventh sons)))
@@ -1169,7 +1169,7 @@ limite: fq maximale (pour éviter repliement)
                    (doux 1)
                    (percu 2)))
           
-          (nom (if (equal fichier 'nil) (choose-new-file-dialog ) fichier))
+          (nom (if (equal fichier 'nil) (om-choose-new-file-dialog ) fichier))
           (lnotes (inside accord)) ; ATTENTION ici il faut garder les notes en tant qu'objet pour le traitement plutard
           (longnotes (1- (length lnotes)))
           (datanal (first analyse))                   ; liste des dates fenêtres d'analyse
@@ -1307,7 +1307,7 @@ limite: fq maximale (pour éviter repliement)
    :icon 132
    :doc ""
 
-  (let* ((nom (if (equal fichier 'nil) (choose-new-file-dialog ) fichier))
+  (let* ((nom (if (equal fichier 'nil) (om-choose-new-file-dialog ) fichier))
         (long (1- (length dates)))
         (larg (list-max (mapcar 'length freqs)))
         (last-ev (- (nth long dates) (nth (1- long) dates )))
@@ -1418,7 +1418,7 @@ limite: fq maximale (pour éviter repliement)
           (zeros (list (create-list (1+ nbcomp) 0)))
           (l-amps  (x-append l-amps zeros  ))
           (spectre (list! spectre))    
-          (nom (if (equal fichier 'nil) (choose-new-file-dialog ) fichier)))
+          (nom (if (equal fichier 'nil) (om-choose-new-file-dialog ) fichier)))
 
     (when nom
       (with-open-file (file nom :direction :output   :if-exists :supersede)
@@ -1470,7 +1470,7 @@ ATTENTION : entrée en Midics "
           (l-freqs-fin (first resul))
           (l-amps-fin  (second resul))
           (spectre (list! spectre))
-          (nom (if (equal fichier 'nil) (choose-new-file-dialog ) fichier)) )
+          (nom (if (equal fichier 'nil) (om-choose-new-file-dialog ) fichier)) )
      
      (when nom
        (with-open-file (file nom :direction :output   :if-exists :supersede)

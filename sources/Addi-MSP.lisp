@@ -6,8 +6,8 @@
 
 (defun addicoll (add-file max-file )
 "traduit les fichiers additive dans le format des coll MSP"
-(let* ((file-in (if (equal add-file 'nil) (choose-file-dialog ) add-file))
-      (file-out (if (equal max-file 'nil) (choose-new-file-dialog ) max-file))
+(let* ((file-in (if (equal add-file 'nil) (om-choose-file-dialog ) add-file))
+      (file-out (if (equal max-file 'nil) (om-choose-new-file-dialog ) max-file))
       (window  (make-array  163  :adjustable t  :fill-pointer 0))
       item  )
          
@@ -81,7 +81,7 @@ un dialogue s'ouvre"
    :doc "lit les fichiers additive et en extrait des tableaux de freq et d'amp "
 
  
-       (let* ((file-in (if (equal add-file 'nil) (choose-file-dialog ) add-file))
+       (let* ((file-in (if (equal add-file 'nil) (om-choose-file-dialog ) add-file))
              (dimension (list 40 dim))
              (t-freq  (make-array  dimension  :adjustable t  ))
              (t-amp   (make-array  dimension  :adjustable t  ))
@@ -129,7 +129,7 @@ un dialogue s'ouvre"
    :doc "lit les fichiers additive et en extrait des listes de freq et d'amp"
 
  
-       (let* ((file-in (if (equal add-file 'nil) (choose-file-dialog ) add-file))
+       (let* ((file-in (if (equal add-file 'nil) (om-choose-file-dialog ) add-file))
              l-freq l-amp kfen nbpar )
          
          (when file-in
@@ -179,7 +179,7 @@ un dialogue s'ouvre"
   (let ((nharm (1- (length l-freqs))) 
         (nbfen  (- (length (first l-freqs)) 1))
         (l-freqs (om-round l-freqs 2))
-        (file-out (if (equal file-out "name") (choose-new-file-dialog ) file-out)))
+        (file-out (if (equal file-out "name") (om-choose-new-file-dialog ) file-out)))
     
     (with-open-file (file2 file-out :direction :output 
                            :if-exists :supersede)

@@ -8367,7 +8367,7 @@ par le canal (+ 1 2 3 selon micro-int)"
 
 (defun read-file-list  (fichier  ) 
   (let (list item   
-             (nom (if (null fichier ) (choose-file-dialog ) fichier)))
+             (nom (if (null fichier ) (om-choose-file-dialog ) fichier)))
     (when nom
       (with-open-file (file nom :direction :input 
                             :if-does-not-exist nil)
@@ -8378,7 +8378,7 @@ par le canal (+ 1 2 3 selon micro-int)"
 
 (defun read-file-array (dimension  fichier  )  
   (let (item   
-        (nom (if (equal fichier "name") (choose-file-dialog ) fichier))
+        (nom (if (equal fichier "name") (om-choose-file-dialog ) fichier))
         (tab (make-array dimension :adjustable t  :fill-pointer 0)))
     (when nom
       (with-open-file (file nom :direction :input 
@@ -8411,7 +8411,7 @@ format de sortie : list par défaut, array par option "
    :icon 137
    :doc " option : séparateur de données (rien, espace, ligne, tab)
 ''rien''  suppose que la liste est déjà formatée "
-   (let ((nom (if (equal fichier 'nil) (choose-new-file-dialog ) fichier))
+   (let ((nom (if (equal fichier 'nil) (om-choose-new-file-dialog ) fichier))
          (char (case sep
                  (rien  ""  )
                  (espace #\Space)
@@ -8444,7 +8444,7 @@ options : séparateur de données à l'intérieur de chaque ligne  ( space ou tab)
           fmat =  nombre de chiffres pour représenter les nombres (évite aussi notation
 exponentielle) . Si fmat=0 les nombres sont écrits tels quels  "
    
-   (let ((nom (if (equal fichier 'nil) (choose-new-file-dialog ) fichier))
+   (let ((nom (if (equal fichier 'nil) (om-choose-new-file-dialog ) fichier))
          (char (case sep
                  (espace #\Space)
                  (tab #\tab))))
